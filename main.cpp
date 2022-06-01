@@ -66,10 +66,10 @@ int main() {
     std::cout << "Tasks per person (Project2):" \
     << project_2.getNumOfTasksPerPerson() << std::endl;
 
-    std::cout << "Worker info:" ;
+    std::cout << "Worker info:";
     pr1.printInfo();
     std::cout << std::endl;
-    std::cout << "Worker info:" ;
+    std::cout << "Worker info:";
     ts_1.printInfo();
     std::cout << std::endl;
     pr1.setWorkTime(1);
@@ -92,15 +92,18 @@ int main() {
     tl_1.calc();
     sm_1.calc();
     pm_1.calc();
-    std::cout << std::endl << "---Work time=1; No bonuses---" \
+    std::cout << std::endl << "Work time=1; No bonuses" \
     << std::endl;
-    std::cout << "---Programmer, Tester accept their salary + part of \
-    budget (0.01)---" << std::endl;
-    std::cout << "---Team Leader accepts salary + part of budget \
-    (0.02) + 1000 for each subordinate---" << std::endl;
-    std::cout << "---Senior Manager and Team Leader accept salary + \
-    1000 for each subordinate---" << std::endl;
-    std::cout << "Payement (programmer):" \
+    std::cout <<\
+    "Programmer,Tester:salary+part of budget(0.01)"\
+    << std::endl;
+    std::cout <<\
+    "Team Leader:salary+part of budget+1000 for each subordinate"\
+    << std::endl;
+    std::cout <<\
+    "Senior Manager,Team Leader:salary+1000 for each subordinate"\
+    << std::endl;
+    std::cout << "Payement (programmer):"\
     << pr1.getPayment() << std::endl;
     std::cout << "Payement (tester):" \
     << ts_1.getPayment() << std::endl;
@@ -115,9 +118,9 @@ int main() {
 
     pr1.calc();
     tl_1.calc();
-    std::cout << std::endl << "---Work time=1; \
-    Programmer gets a bonus; Team Leader gets additional subordinate\
-    ---" << std::endl;
+    std::cout << std::endl <<\
+    "Worktime=1;Programmer gets bonus;Team Leader gets additional subordinate"\
+    << std::endl;
     std::cout << "Payement (programmer):" \
     << pr1.getPayment() << std::endl;
     std::cout << "Payement (tester):" \
@@ -135,8 +138,8 @@ int main() {
     tl_1.calc();
     sm_1.calc();
     pm_1.calc();
-    std::cout << std::endl << "---Work time=1; \
-    Project budget increased from 100000 to 500000---" \
+    std::cout << std::endl <<\
+    "Worktime=1;Project budget increased from 100000to500000"\
     << std::endl;
     std::cout << "Payement (programmer):" << pr1.getPayment() \
     << std::endl;
