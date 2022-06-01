@@ -23,6 +23,7 @@ jobs:
     
   build:
     runs-on: ${{ matrix.os }}
+    needs: [cpplint]
     env:
       app_name: app-${{ matrix.os }}_ver.${{ github.event }}
     strategy:
@@ -40,8 +41,10 @@ jobs:
           name: ${{ env.artifact_name }}
           path: ${{ env.app_name }}
           if-no-files-found: error
+          
   build_win:
     runs-on: windows-2022
+    needs: [cpplint]
     env:
       app_name: app-win22_ver.${{ github.event }}
     steps:
@@ -49,7 +52,7 @@ jobs:
       - uses: ilammy/msvc-dev-cmd@v1.10.0
       - name: build_win
         run: |
-          cl /EHsc *.cpp
+          cl /EHsc *.cpp /Fe app_name
           ls
           
           
