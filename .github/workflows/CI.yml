@@ -12,6 +12,15 @@ env:
   artifact_name: app_ver_${{ github.sha }}
 
 jobs:
+  cpp_style_check:
+    runs-on: ubuntu-latest
+    name: Check C++ Style
+    steps:
+    - name: Checkout this commit
+      uses: actions/checkout@v3
+    - name: Run style checks
+      uses: coleaeason/actions-uncrustify@v1
+    
   build:
     runs-on: ${{ matrix.os }}
     env:
@@ -30,7 +39,7 @@ jobs:
         with:
           name: ${{ env.artifact_name }}
           path: ${{ env.app_name }}
-          if-no-files-found: warn
+          if-no-files-found: error
   build_win:
     runs-on: windows-2022
     env:
@@ -49,4 +58,4 @@ jobs:
         with:
           name: ${{ env.artifact_name }}
           path: "*.exe"
-          if-no-files-found: warn
+          if-no-files-found: error
