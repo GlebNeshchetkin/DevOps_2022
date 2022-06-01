@@ -3,11 +3,6 @@
 #include <gtest/gtest.h>
 #include <string>
 #include "Factory.h"
-#include "Employee.cpp"
-#include "Engineer.cpp"
-#include "Factory.cpp"
-#include "Manager.cpp"
-#include "Personal.cpp"
 #include "Employee.h"
 #include "Engineer.h"
 #include "Interfaces.h"
