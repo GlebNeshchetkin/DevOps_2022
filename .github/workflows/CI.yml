@@ -7,16 +7,17 @@ on:
     branches: [ main ]
     
   workflow_dispatch:
-
+  
+env:
+      app_name: app-${{ matrix.os }}_ver.${{ github.runnumber }}
+      artifact_name: app_ver_${{ github.sha }}
+      
 jobs:
   build:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
         os: [ubuntu-20.04, macos-11]
-    env:
-      app_name: app-${{ matrix.os }}_ver.${{ github.runnumber }}
-      artifact_name: app_ver_${{ github.sha }}
     steps:
       - uses: actions/checkout@v3
       - name: build
@@ -32,4 +33,4 @@ jobs:
         with:
           name: ${{ env.artifact_name }}
           path: ${{ env.app_name }}
-          warn: Warnining
+          if-no-files-found: Warnining
