@@ -15,7 +15,7 @@ jobs:
   build:
     runs-on: ${{ matrix.os }}
     env:
-      app_name: app-${{ matrix.os }}_ver.${{ github.runnumber }}
+      app_name: app-${{ matrix.os }}_ver.${{ github.event }}
     strategy:
       matrix:
         os: [ubuntu-20.04]
@@ -35,5 +35,5 @@ jobs:
         uses: actions/upload-artifact@v3.1.0
         with:
           name: ${{ env.artifact_name }}
-          path: app-*
+          path: app-**
           if-no-files-found: warn
