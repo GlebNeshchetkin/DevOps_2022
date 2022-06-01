@@ -20,7 +20,12 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: build
-        run: | 
+        run: |
+         g++ Employee.cpp -o emp_${{ env.app_name }}
+         g++ Engineer.cpp -o eng_${{ env.app_name }}
+         g++ Manager.cpp -o mng_${{ env.app_name }}
+         g++ Factory.cpp -o fact_${{ env.app_name }}
+         g++ Personal.cpp -o per_${{ env.app_name }}
          g++ main.cpp -o ${{ env.app_name }}
       - name: Artifact upload
         uses: actions/upload-artifact@v2.3.1
