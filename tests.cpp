@@ -27,7 +27,7 @@ TEST(TestProgrammer_2, Test_3) {
     pr.setWorkTime(2);
     pr.addBonus();
     pr.calc();
-    EXPECT_EQ(10400, pr.getPayment());
+    EXPECT_EQ(15400, pr.getPayment());
 }
 
 TEST(TestProgrammer_3, Test_4) {
