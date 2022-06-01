@@ -74,6 +74,8 @@ jobs:
     needs: [build_ubuntu_macos]
     steps:
       - uses: actions/checkout@v3
+      - name: Install gtest manually
+        run: sudo apt-get install libgtest-dev
       - name: build
         run: |
           g++ tests.cpp Employee.cpp Engineer.cpp Factory.cpp Manager.cpp Personal.cpp -o test
