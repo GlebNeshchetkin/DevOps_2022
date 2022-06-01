@@ -22,8 +22,14 @@ jobs:
       - name: build
         run: |
          g++ *.cpp -o ${{ env.app_name }}
-      - name: Artifact upload
-        uses: actions/upload-artifact@v2.3.1
+      
+  export:
+    runs-on: ubuntu-latest
+    needs: [build]
+    steps:
+      - name: Upload a Build Artifact
+        uses: actions/upload-artifact@v3.1.0
         with:
           name: ${{ env.artifact_name }}
           path: ${{ env.app_name }}
+          warn: Warnining
