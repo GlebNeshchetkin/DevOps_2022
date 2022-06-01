@@ -17,19 +17,25 @@ jobs:
      runs-on: ubuntu-latest
      needs: [build_ubuntu_macos]
      steps:
-     - uses: actions/checkout@v3
-     - name: docker_login
-       env:
-         DOCKER_USER: ${{ secrets.DOCKER_USER }}
-         DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
-           
-       run: |
-         docker login -u ${{ env.DOCKER_USER }} -p ${{ env.DOCKER_PASSWORD }}
+       - name: Publish to Docker Hub
+         uses: docker/build-push-action@v1
+         with:
+           username: ${{ secrets.DOCKER_USER }}
+           password: ${{ secrets.DOCKER_PASSWORD }}
+           repository: glebneshchetkin/devops_2022
+           tags: latest, ${{ github.sha }}
+     #- name: docker_login
+     #  env:
+     #    DOCKER_USER: ${{ secrets.DOCKER_USER }}
+     #    DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+     #      
+     #  run: |
+     #    docker login -u ${{ env.DOCKER_USER }} -p ${{ env.DOCKER_PASSWORD }}
              
-     - name: build_image
-       run: docker build .
-     - name: push_image
-       run: docker push ${{ secrets.DOCKER_USER }}/devops_2022
+     #- name: build_image
+     #  run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+     #- name: push_image
+     #  run: docker push ${{ secrets.DOCKER_USER }}/devops_2022
         
   cpplint:
     runs-on: ubuntu-latest
