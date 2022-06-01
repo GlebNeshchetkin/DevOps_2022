@@ -69,6 +69,16 @@ jobs:
           path: ${{ env.app_name }}
           if-no-files-found: error
           
+  test:
+    runs-on: ubuntu-latest
+    needs: [build_ubuntu_macos]
+    steps:
+      - uses: actions/checkout@v3
+      - name: build
+        run: |
+          g++ tests.cpp Employee.cpp Engineer.cpp Factory.cpp Manager.cpp Personal.cpp -o test
+          ./test
+          
   #build_win:
   #  runs-on: windows-2022
   #  needs: [cpplint]
