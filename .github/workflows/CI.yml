@@ -1,0 +1,29 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+    
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-20.04, macos-11]
+    env:
+      app_name: app-${{ matrix.os }}_ver.${{ github.runnumber }}
+      artifact_name: app_ver_${{ github.sha }}
+    steps:
+      - uses: actions/checkout@v3
+      - name: build
+        run: | 
+         g++ ./src/main.cpp -o ${{ env.app_name }}
+      - name: Artifact upload
+        uses: actions/upload-artifact@v2.3.1
+        with:
+          name: ${{ env.artifact_name }}
+          path: ${{ env.app_name }}
