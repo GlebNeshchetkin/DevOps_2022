@@ -11,6 +11,7 @@ on:
 env:
   artifact_name: app_ver_${{ github.sha }}
 
+
 jobs:
   docker_upload:
      runs-on: ubuntu-latest
