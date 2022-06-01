@@ -95,17 +95,22 @@ jobs:
     needs: [test]
     steps:
       - uses: actions/checkout@v3
+      
+      - name: Upload Build Artifacts ubuntu macos
+        run: |
+          ls
+          cd ../
+          ls
+      - uses: actions/upload-artifact@v3.1.0
+        with:
+          name: ${{ env.artifact_name }}
+          path: "*.Object"
+          if-no-files-found: error
       - name: Upload a Build Artifact win
         uses: actions/upload-artifact@v3.1.0
         with:
           name: ${{ env.artifact_name }}
           path: "*.exe"
-          if-no-files-found: error
-      - name: Upload Build Artifacts ubuntu macos
-        uses: actions/upload-artifact@v3.1.0
-        with:
-          name: ${{ env.artifact_name }}
-          path: "*.Object"
           if-no-files-found: error
       
   
