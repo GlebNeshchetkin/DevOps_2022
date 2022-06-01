@@ -78,7 +78,7 @@ jobs:
         run: sudo apt-get install libgtest-dev
       - name: build
         run: |
-          g++ tests.cpp Employee.cpp Engineer.cpp Factory.cpp Manager.cpp Personal.cpp -lgtest -lpthread test
+          g++ tests.cpp Employee.cpp Engineer.cpp Factory.cpp Manager.cpp Personal.cpp -lgtest -lpthread -o test
           ./test
           
   #build_win:
