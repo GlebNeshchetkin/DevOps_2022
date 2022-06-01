@@ -24,6 +24,7 @@ jobs:
          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
            
        run: |
+         find / -name Docker
          docker login -u ${{ env.DOCKER_USER }} -p ${{ env.DOCKER_PASSWORD }}
              
      - name: build_image
