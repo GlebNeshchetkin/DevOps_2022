@@ -79,7 +79,7 @@ jobs:
       - uses: ilammy/msvc-dev-cmd@v1.10.0
       - name: build_win
         run: |
-          cl /EHsc main.cpp Employee.cpp Engineer.cpp Factory.cpp Manager.cpp Personal.cpp /Fe: app-win22_ver.${{ github.event }}.exe
+          cl /EHsc main.cpp Employee.cpp Engineer.cpp Factory.cpp Manager.cpp Personal.cpp /Fe: app-win22_ver.${{ github.sha }}.exe
           ls
           
           
