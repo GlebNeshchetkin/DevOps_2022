@@ -74,7 +74,6 @@ void Factory::createStaff() {
             SeniorManager* tmp = new SeniorManager(std::stoi(id), name, &pr);
             employees.push_back(tmp);
         }
-
     }
     in.close();
     factory_employees = employees;

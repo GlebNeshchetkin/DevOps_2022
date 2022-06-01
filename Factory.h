@@ -15,4 +15,4 @@ class Factory {
     void createStaff();
 };
 
-#endif // FACTORY_H_
+#endif  // FACTORY_H_

@@ -48,4 +48,4 @@ class SeniorManager : public ProjectManager {
     virtual int calcProAdditions();
 };
 
-#endif // MANAGER_H_
+#endif  // MANAGER_H_

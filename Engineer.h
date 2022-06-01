@@ -117,4 +117,4 @@ class TeamLeader : public Programmer, public Heading {
     }
 };
 
-#endif // ENGINEER_H_
+#endif  // ENGINEER_H_

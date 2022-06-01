@@ -19,4 +19,4 @@ class ProjectBudget {
     virtual int calcProAdditions() = 0;
 };
 
-#endif // INTERFACES_H_
+#endif  // INTERFACES_H_

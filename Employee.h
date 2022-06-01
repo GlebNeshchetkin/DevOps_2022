@@ -41,4 +41,4 @@ class Employee {
     virtual void printInfo() = 0;
 };
 
-#endif // EMPLOYEE_H_
+#endif  // EMPLOYEE_H_

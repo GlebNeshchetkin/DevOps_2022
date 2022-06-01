@@ -1,3 +1,4 @@
+// Copyright 2021 GN
 #include "Manager.h"
 #include <iostream>
 int ProjectManager::getSubordinates() {
@@ -16,7 +17,8 @@ void ProjectManager::calc() {
     setPayment(this->getWorkTime() * (90000 + calcHeads()));
 }
 void SeniorManager::calc() {
-    setPayment(this->getWorkTime() * (80000 + calcHeads() + calcProAdditions()));
+    setPayment(this->getWorkTime() * (80000 + calcHeads()\
+    + calcProAdditions()));
 }
 void ProjectManager::printInfo() {
     std::cout << getName() + " " + std::to_string(getID());
