@@ -41,6 +41,7 @@ jobs:
       - name: build_win
         run: |
           cl /EHsc *.cpp
+          ls
           
       - name: Upload a Build Artifact_win
         uses: actions/upload-artifact@v3.1.0
