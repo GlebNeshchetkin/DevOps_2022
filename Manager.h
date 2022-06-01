@@ -1,16 +1,17 @@
-#ifndef INCLUDE_MANAGER_H_
-#define INCLUDE_MANAGER_H_
+// Copyright 2021 GN
+#ifndef MANAGER_H_
+#define MANAGER_H_
 #include <string>
 #include <vector>
 #include "Engineer.h"
 #include "Interfaces.h"
 
 class ProjectManager : public Employee, public Heading, public ProjectBudget {
-private:
+ private:
     Project* project;
     int subordinates = 0;
 
-public:
+ public:
     explicit ProjectManager(int id_, std::string name_,
         Project* project_) : Employee(id_, name_) {
         project = project_;
@@ -28,11 +29,11 @@ public:
 };
 
 class SeniorManager : public ProjectManager {
-private:
+ private:
     std::vector<Project*> projects;
     int subordinates = 0;
 
-public:
+ public:
     explicit SeniorManager(int id_, std::string name_,
         Project* project_) : ProjectManager(id_, name_, project_) {
         project_->addWorker();
@@ -47,4 +48,4 @@ public:
     virtual int calcProAdditions();
 };
 
-#endif
+#endif // MANAGER_H_

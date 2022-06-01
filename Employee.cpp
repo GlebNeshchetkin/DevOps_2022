@@ -1,3 +1,4 @@
+// Copyright 2021 GN
 #include "Employee.h"
 void Employee::setPayment(int payment_) {
     payment = payment_;

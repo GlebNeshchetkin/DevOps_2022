@@ -1,3 +1,4 @@
+// Copyright 2021 GN
 #include "Factory.h"
 #include <iostream>
 int main() {

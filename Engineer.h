@@ -1,17 +1,18 @@
-#ifndef INCLUDE_ENGINEER_H_
-#define INCLUDE_ENGINEER_H_
+// Copyright 2021 GN
+#ifndef ENGINEER_H_
+#define ENGINEER_H_
 #include <string>
 #include <vector>
 #include "Personal.h"
 
 class Project {
-private:
+ private:
     std::string id;
     int budget;
     int num_of_tasks;
     int num_of_workers;
 
-public:
+ public:
     void setID(std::string id_) {
         id = id_;
     }
@@ -48,10 +49,10 @@ public:
 };
 
 class Engineer : public ProjectBudget, public Personal {
-private:
+ private:
     Project* project;
 
-public:
+ public:
     explicit Engineer(int id_, std::string name_,
         int salary_, Project* project_)
         : Personal(id_, name_, salary_) {
@@ -68,9 +69,9 @@ public:
 };
 
 class Programmer : public Engineer {
-private:
+ private:
     bool bonus = 0;
-public:
+ public:
     explicit Programmer(int id_, std::string name_,
         int salary_, Project* project_)
         : Engineer(id_, name_, salary_, project_) {
@@ -81,10 +82,10 @@ public:
 };
 
 class Tester : public Engineer {
-private:
+ private:
     int errors = 0;
 
-public:
+ public:
     explicit Tester(int id_, std::string name_,
         int salary_, Project* project_)
         : Engineer(id_, name_, salary_, project_) {
@@ -98,10 +99,10 @@ public:
 };
 
 class TeamLeader : public Programmer, public Heading {
-private:
+ private:
     int subordinates = 0;
 
-public:
+ public:
     explicit TeamLeader(int id_, std::string name_,
         int salary_, Project* project_)
         : Programmer(id_, name_, salary_, project_) {
@@ -116,4 +117,4 @@ public:
     }
 };
 
-#endif
+#endif // ENGINEER_H_

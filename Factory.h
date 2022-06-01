@@ -1,5 +1,6 @@
-#ifndef INCLUDE_FACTORY_H_
-#define INCLUDE_FACTORY_H_
+// Copyright 2021 GN
+#ifndef FACTORY_H_
+#define FACTORY_H_
 
 #include <vector>
 #include "Manager.h"
@@ -7,11 +8,11 @@
 #include "Personal.h"
 
 class Factory {
-private:
+ private:
     std::vector<Employee*>factory_employees;
 
-public:
+ public:
     void createStaff();
 };
 
-#endif
+#endif // FACTORY_H_

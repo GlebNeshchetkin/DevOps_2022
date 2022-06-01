@@ -1,15 +1,15 @@
 // Copyright 2021 GN
-#ifndef INCLUDE_PERSONAL_H_
-#define INCLUDE_PERSONAL_H_
+#ifndef PERSONAL_H_
+#define PERSONAL_H_
 #include <string>
 #include "Employee.h"
 #include "Interfaces.h"
 
 class Personal : public Employee, public WorkBaseTime {
-private:
+ private:
     int salary;
 
-public:
+ public:
     explicit Personal(int id_, std::string name_,
         int salary_) : Employee(id_, name_) {
         salary = salary_;
@@ -20,4 +20,4 @@ public:
     virtual void printInfo();
 };
 
-#endif  // INCLUDE_PERSONAL_H_
+#endif  // PERSONAL_H_

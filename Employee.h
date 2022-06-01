@@ -1,5 +1,6 @@
-#ifndef INCLUDE_EMPLOYEE_H_
-#define INCLUDE_EMPLOYEE_H_
+// Copyright 2021 GN
+#ifndef EMPLOYEE_H_
+#define EMPLOYEE_H_
 
 #include <string>
 
@@ -12,17 +13,17 @@ enum position {
 };
 
 class Employee {
-private:
+ private:
     int id;
     std::string name;
     int worktime = 0;
     int payment = 0;
     int total_stage = 0;
 
-protected:
+ protected:
     position spec;
 
-public:
+ public:
     explicit Employee(int id_, std::string name_) {
         id = id_;
         name = name_;
@@ -40,4 +41,4 @@ public:
     virtual void printInfo() = 0;
 };
 
-#endif
+#endif // EMPLOYEE_H_

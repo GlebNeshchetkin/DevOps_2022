@@ -1,4 +1,4 @@
-/// Copyright 2021 GN
+// Copyright 2021 GN
 #include "Employee.h"
 #include "Personal.h"
 #include <iostream>
