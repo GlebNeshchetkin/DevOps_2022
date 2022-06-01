@@ -12,14 +12,13 @@ env:
   artifact_name: app_ver_${{ github.sha }}
 
 jobs:
-  cpp_style_check:
+  cpplint:
     runs-on: ubuntu-latest
-    name: Check C++ Style
     steps:
-    - name: Checkout this commit
-      uses: actions/checkout@v3
-    - name: Run style checks
-      uses: coleaeason/actions-uncrustify@v1
+    - uses: actions/checkout@v1
+    - uses: actions/setup-python@v1
+    - run: pip install cpplint
+    - run: cpplint --recursive .
     
   build:
     runs-on: ${{ matrix.os }}
