@@ -40,7 +40,7 @@ jobs:
       - uses: ilammy/msvc-dev-cmd@v1.10.0
       - name: build_win
         run: |
-          cl /EHsc main.cpp
+          cl /EHsc *.cpp /out:main.exe
           ls
           
       - name: Upload a Build Artifact_win
